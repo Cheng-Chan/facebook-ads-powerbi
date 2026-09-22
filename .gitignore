@@ -1,0 +1,35 @@
+# Local datasets (documentation under data/ remains trackable)
+data/raw/
+data/processed/
+
+# Power BI deliverables pending sharing and metadata review
+*.pbix
+*.pbit
+
+# Power BI project files that are local to a user or machine
+**/.pbi/cache.abf
+**/.pbi/editorSettings.json
+**/.pbi/localSettings.json
+
+# Credentials and local environment configuration
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Python and notebook caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Editor, operating-system, and temporary files
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+*.swp
+*~
+~$*

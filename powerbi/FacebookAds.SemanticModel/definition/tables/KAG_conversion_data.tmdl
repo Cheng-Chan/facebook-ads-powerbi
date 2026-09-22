@@ -1,0 +1,185 @@
+table KAG_conversion_data
+	lineageTag: 7b02523e-6c47-47d9-b86c-4083f93545db
+
+	measure 'Total Spend' = SUM('KAG_conversion_data'[Spent])
+		formatString: #,0.00
+		displayFolder: Measures
+		lineageTag: 1fd9b2ca-5515-425c-b199-d44de7b46909
+
+	measure 'Total Impressions' = SUM('KAG_conversion_data'[Impressions])
+		formatString: #,0
+		displayFolder: Measures
+		lineageTag: 9b44608f-6d2b-45b7-9633-cd279bdaf0d2
+
+	measure 'Total Clicks' = SUM('KAG_conversion_data'[Clicks])
+		formatString: #,0
+		displayFolder: Measures
+		lineageTag: 4ab19aee-1604-4ca4-81b1-36b8ee6fb1db
+
+	measure 'Total Enquiries' = SUM('KAG_conversion_data'[Total_Conversion])
+		formatString: #,0
+		displayFolder: Measures
+		lineageTag: d55a8f83-1813-4e25-8f68-256c1c0fe562
+
+	measure 'Approved Conversions' = SUM('KAG_conversion_data'[Approved_Conversion])
+		formatString: #,0
+		displayFolder: Measures
+		lineageTag: 72138a6d-32df-4156-ba2c-f030e24b73ff
+
+	measure CTR = DIVIDE([Total Clicks], [Total Impressions])
+		formatString: 0.00%
+		displayFolder: Measures
+		lineageTag: 5a0491f1-b25a-498d-9b21-6a05ed125e93
+
+	measure CPC = DIVIDE([Total Spend], [Total Clicks])
+		formatString: #,0.00
+		displayFolder: Measures
+		lineageTag: 88ae3487-5fa2-46b7-9d3d-8f3ff95403c1
+
+	measure CPM = DIVIDE(1000 * [Total Spend], [Total Impressions])
+		formatString: #,0.00
+		displayFolder: Measures
+		lineageTag: a2ee5159-abba-4be5-8797-8ef1a3f6d344
+
+	measure 'Cost per Approved Conversion' = DIVIDE([Total Spend], [Approved Conversions])
+		formatString: #,0.00
+		displayFolder: Measures
+		lineageTag: 256a8909-37d8-4d4b-8ba4-f4b2e67d00d9
+
+	measure 'Campaign Spend Share' = DIVIDE([Total Spend], CALCULATE([Total Spend], REMOVEFILTERS('KAG_conversion_data'[xyz_campaign_id])))
+		formatString: 0.00%
+		displayFolder: Measures
+		lineageTag: e79a3b58-21f6-4200-8dbd-d1b1961fac71
+
+	measure 'Executive Overview Title' =
+			VAR HasRows = COUNTROWS('KAG_conversion_data') > 0
+			VAR CampaignCount = COUNTROWS(VALUES('KAG_conversion_data'[xyz_campaign_id]))
+			RETURN
+				SWITCH(
+					TRUE(),
+					NOT HasRows, "Facebook Ads Performance — No data",
+					ISFILTERED('KAG_conversion_data'[xyz_campaign_id]) && CampaignCount = 1, "Facebook Ads Performance — Campaign " & SELECTEDVALUE('KAG_conversion_data'[xyz_campaign_id]),
+					ISFILTERED('KAG_conversion_data'[xyz_campaign_id]) && CampaignCount > 1, "Facebook Ads Performance — Multiple campaigns",
+					"Facebook Ads Campaign Performance Analysis"
+				)
+		displayFolder: Measures
+		lineageTag: f0f43534-f319-49ed-9759-a2939b17252f
+
+	column ad_id
+		dataType: string
+		lineageTag: 403ce7b8-e41c-41a9-964f-4c2b24c72c43
+		summarizeBy: none
+		sourceColumn: ad_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column xyz_campaign_id
+		dataType: string
+		lineageTag: ab9889a7-bce6-4deb-b495-573691ee0bcc
+		summarizeBy: none
+		sourceColumn: xyz_campaign_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column fb_campaign_id
+		dataType: string
+		lineageTag: e88b0d3d-0604-4371-97ac-ef34a28fc1e4
+		summarizeBy: none
+		sourceColumn: fb_campaign_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column age
+		dataType: string
+		lineageTag: 737ebc72-5fc9-4031-aeea-83bf84eeddd8
+		summarizeBy: none
+		sourceColumn: age
+
+		annotation SummarizationSetBy = Automatic
+
+	column gender
+		dataType: string
+		lineageTag: 6ab01ae7-9224-4ed2-a4e8-d71f011f38e8
+		summarizeBy: none
+		sourceColumn: gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column interest
+		dataType: string
+		lineageTag: c62dffc3-70a0-48b2-b256-c11fa89f26a8
+		summarizeBy: none
+		sourceColumn: interest
+
+		annotation SummarizationSetBy = Automatic
+
+	column Impressions
+		dataType: int64
+		lineageTag: 185f715b-6e74-42de-a992-b73b84c48943
+		summarizeBy: none
+		sourceColumn: Impressions
+
+		annotation SummarizationSetBy = Automatic
+
+	column Clicks
+		dataType: int64
+		lineageTag: 2268c316-f654-45b2-bd3c-e9fe09aed160
+		summarizeBy: none
+		sourceColumn: Clicks
+
+		annotation SummarizationSetBy = Automatic
+
+	column Spent
+		dataType: double
+		lineageTag: 32bfd33c-0c2f-4b4b-8e63-27cfdd12d85d
+		summarizeBy: none
+		sourceColumn: Spent
+
+		annotation SummarizationSetBy = Automatic
+
+	column Total_Conversion
+		dataType: int64
+		lineageTag: 095a72cd-0861-495c-b22e-2903fc961801
+		summarizeBy: none
+		sourceColumn: Total_Conversion
+
+		annotation SummarizationSetBy = Automatic
+
+	column Approved_Conversion
+		dataType: int64
+		lineageTag: 16e74bd8-0a62-4ce8-aa1d-ada77c29636d
+		summarizeBy: none
+		sourceColumn: Approved_Conversion
+
+		annotation SummarizationSetBy = Automatic
+
+	partition KAG_conversion_data = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Projects\facebook-ads-powerbi\data\raw\KAG_conversion_data.csv"),[Delimiter=",", Columns=11, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(
+				        #"Promoted Headers",
+				        {
+				            {"ad_id", type text},
+				            {"xyz_campaign_id", type text},
+				            {"fb_campaign_id", type text},
+				            {"age", type text},
+				            {"gender", type text},
+				            {"interest", type text},
+				            {"Impressions", Int64.Type},
+				            {"Clicks", Int64.Type},
+				            {"Spent", type number},
+				            {"Total_Conversion", Int64.Type},
+				            {"Approved_Conversion", Int64.Type}
+				        },
+				        "en-US"
+				    )
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
