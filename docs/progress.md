@@ -11,13 +11,18 @@ Last updated: 22 September 2026
 | T04 | Completed (readiness verification) | The About dialog confirmed Microsoft Power BI Desktop version `2.157.1354.0` 64-bit (August 2026). User screenshots confirmed that the PBIP, project PBIR, and TMDL project-format options are present and enabled. No settings were changed and no restart was required. |
 | T05 | Completed | The project was non-destructively relocated to a short Windows-local directory exposed to WSL through the mounted local drive. The original directory is retained as an inactive rollback copy, and Codex was reopened with the selected directory as its working and Git root. |
 | T06 | Completed — limited approved scope | Added targeted Git exclusions plus minimal root, data, and progress documentation. The existing repository was used; repository initialization and remote operations were not performed. |
+| T07 | Partial — source-only repository published | The reviewed source and documentation were pushed to the existing public GitHub repository on `main`. This differs from the campaign's originally planned private repository. Raw/processed data, PBIX/PBIT files, cache data, and local Power BI settings were excluded. |
 | T08 | Completed | Power BI Desktop created the `FacebookAds` PBIP baseline and imported `KAG_conversion_data.csv` through Power Query. The saved project uses PBIR report definitions and a TMDL semantic model. Refresh, save, close, reopen, and the loaded 1,143-row result were verified through user evidence and read-only file inspection. |
 | T09 | Completed | Identifier/category columns remain text, count fields use whole numbers, and spend uses a decimal number. All 1,143 rows converted without errors; Desktop loaded and rendered aggregates from the edited model. |
 | T18–T22 | Completed for Release A | Eleven explicit DAX measures were added, including additive totals, CTR, CPC, CPM, cost per approved conversion, selected-context spend share, and a filter-aware title. Unfiltered rendered results reconcile to independent source calculations. |
 | T23–T25 | Completed for Release A | The 1920×1080 Executive Overview rendered with four slicers, five KPI cards, a spend donut, an approved-conversion bar chart, and a campaign detail table. |
 | T26 | Partial | The title and unfiltered visuals rendered correctly. PBIR structure and field bindings passed schema and reference checks, but a live slicer interaction test was not completed before publication preparation. |
 
-T01, T03, T07, T10–T17, and T27–T41 remain incomplete except for the Release A work explicitly recorded above. T00 remains pending external confirmation.
+T01, T03, T10–T17, and T27–T41 remain incomplete except for the Release A work explicitly recorded above. T07 remains partial because repository visibility differs from its original acceptance condition. T00 remains pending external confirmation.
+
+## GitHub publication
+
+The source-only project is published at `https://github.com/Cheng-Chan/facebook-ads-powerbi` on branch `main`. Anonymous access confirmed that the repository is public. Publication does not resolve instructor acceptance, AI-assistance/disclosure requirements, or dataset redistribution permission. No raw dataset or data-bearing Power BI deliverable was published.
 
 ## Release A implementation and validation
 
