@@ -1,10 +1,5 @@
-# Local datasets (documentation under data/ remains trackable)
-data/raw/
+# Local generated data
 data/processed/
-
-# Power BI deliverables pending sharing and metadata review
-*.pbix
-*.pbit
 
 # Power BI project files that are local to a user or machine
 **/.pbi/cache.abf

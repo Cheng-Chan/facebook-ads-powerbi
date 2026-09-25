@@ -1,0 +1,298 @@
+{
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+    "name":  "adranked00000000001",
+    "position":  {
+                     "x":  1000,
+                     "y":  380,
+                     "z":  21000,
+                     "height":  300,
+                     "width":  880,
+                     "tabOrder":  21000
+                 },
+    "visual":  {
+                   "visualType":  "clusteredBarChart",
+                   "query":  {
+                                 "queryState":  {
+                                                    "Category":  {
+                                                                     "projections":  [
+                                                                                         {
+                                                                                             "field":  {
+                                                                                                           "Column":  {
+                                                                                                                          "Expression":  {
+                                                                                                                                             "SourceRef":  {
+                                                                                                                                                               "Entity":  "KAG_conversion_data"
+                                                                                                                                                           }
+                                                                                                                                         },
+                                                                                                                          "Property":  "ad_id"
+                                                                                                                      }
+                                                                                                       },
+                                                                                             "queryRef":  "KAG_conversion_data.ad_id",
+                                                                                             "nativeQueryRef":  "ad_id",
+                                                                                             "active":  true,
+                                                                                             "displayName":  "Ad ID"
+                                                                                         }
+                                                                                     ]
+                                                                 },
+                                                    "Y":  {
+                                                              "projections":  [
+                                                                                  {
+                                                                                      "field":  {
+                                                                                                    "Measure":  {
+                                                                                                                    "Expression":  {
+                                                                                                                                       "SourceRef":  {
+                                                                                                                                                         "Entity":  "KAG_conversion_data"
+                                                                                                                                                     }
+                                                                                                                                   },
+                                                                                                                    "Property":  "Top 10 Approved Conversions"
+                                                                                                                }
+                                                                                                },
+                                                                                      "queryRef":  "KAG_conversion_data.Top 10 Approved Conversions",
+                                                                                      "nativeQueryRef":  "Top 10 Approved Conversions",
+                                                                                      "displayName":  "Approved Conversions"
+                                                                                  }
+                                                                              ]
+                                                          }
+                                                },
+                                 "sortDefinition":  {
+                                                        "sort":  [
+                                                                     {
+                                                                         "field":  {
+                                                                                       "Measure":  {
+                                                                                                       "Expression":  {
+                                                                                                                          "SourceRef":  {
+                                                                                                                                            "Entity":  "KAG_conversion_data"
+                                                                                                                                        }
+                                                                                                                      },
+                                                                                                       "Property":  "Top 10 Approved Conversions"
+                                                                                                   }
+                                                                                   },
+                                                                         "direction":  "Descending"
+                                                                     }
+                                                                 ]
+                                                    }
+                             },
+                   "objects":  {
+                                   "labels":  [
+                                                  {
+                                                      "properties":  {
+                                                                         "show":  {
+                                                                                      "expr":  {
+                                                                                                   "Literal":  {
+                                                                                                                   "Value":  "true"
+                                                                                                               }
+                                                                                               }
+                                                                                  },
+                                                                         "fontSize":  {
+                                                                                          "expr":  {
+                                                                                                       "Literal":  {
+                                                                                                                       "Value":  "11D"
+                                                                                                                   }
+                                                                                                   }
+                                                                                      },
+                                                                         "color":  {
+                                                                                       "solid":  {
+                                                                                                     "color":  {
+                                                                                                                   "expr":  {
+                                                                                                                                "Literal":  {
+                                                                                                                                                "Value":  "\u0027#102A43\u0027"
+                                                                                                                                            }
+                                                                                                                            }
+                                                                                                               }
+                                                                                                 }
+                                                                                   }
+                                                                     }
+                                                  }
+                                              ],
+                                   "categoryAxis":  [
+                                                        {
+                                                            "properties":  {
+                                                                               "show":  {
+                                                                                            "expr":  {
+                                                                                                         "Literal":  {
+                                                                                                                         "Value":  "true"
+                                                                                                                     }
+                                                                                                     }
+                                                                                        },
+                                                                               "fontSize":  {
+                                                                                                "expr":  {
+                                                                                                             "Literal":  {
+                                                                                                                             "Value":  "11D"
+                                                                                                                         }
+                                                                                                         }
+                                                                                            }
+                                                                           }
+                                                        }
+                                                    ],
+                                   "valueAxis":  [
+                                                     {
+                                                         "properties":  {
+                                                                            "show":  {
+                                                                                         "expr":  {
+                                                                                                      "Literal":  {
+                                                                                                                      "Value":  "true"
+                                                                                                                  }
+                                                                                                  }
+                                                                                     },
+                                                                            "gridlineStyle":  {
+                                                                                                  "expr":  {
+                                                                                                               "Literal":  {
+                                                                                                                               "Value":  "\u0027dotted\u0027"
+                                                                                                                           }
+                                                                                                           }
+                                                                                              }
+                                                                        }
+                                                     }
+                                                 ]
+                               },
+                   "visualContainerObjects":  {
+                                                  "background":  [
+                                                                     {
+                                                                         "properties":  {
+                                                                                            "show":  {
+                                                                                                         "expr":  {
+                                                                                                                      "Literal":  {
+                                                                                                                                      "Value":  "true"
+                                                                                                                                  }
+                                                                                                                  }
+                                                                                                     },
+                                                                                            "color":  {
+                                                                                                          "solid":  {
+                                                                                                                        "color":  {
+                                                                                                                                      "expr":  {
+                                                                                                                                                   "Literal":  {
+                                                                                                                                                                   "Value":  "\u0027#FFFFFF\u0027"
+                                                                                                                                                               }
+                                                                                                                                               }
+                                                                                                                                  }
+                                                                                                                    }
+                                                                                                      },
+                                                                                            "transparency":  {
+                                                                                                                 "expr":  {
+                                                                                                                              "Literal":  {
+                                                                                                                                              "Value":  "0D"
+                                                                                                                                          }
+                                                                                                                          }
+                                                                                                             }
+                                                                                        }
+                                                                     }
+                                                                 ],
+                                                  "border":  [
+                                                                 {
+                                                                     "properties":  {
+                                                                                        "show":  {
+                                                                                                     "expr":  {
+                                                                                                                  "Literal":  {
+                                                                                                                                  "Value":  "true"
+                                                                                                                              }
+                                                                                                              }
+                                                                                                 },
+                                                                                        "color":  {
+                                                                                                      "solid":  {
+                                                                                                                    "color":  {
+                                                                                                                                  "expr":  {
+                                                                                                                                               "Literal":  {
+                                                                                                                                                               "Value":  "\u0027#D9E2EC\u0027"
+                                                                                                                                                           }
+                                                                                                                                           }
+                                                                                                                              }
+                                                                                                                }
+                                                                                                  },
+                                                                                        "radius":  {
+                                                                                                       "expr":  {
+                                                                                                                    "Literal":  {
+                                                                                                                                    "Value":  "14D"
+                                                                                                                                }
+                                                                                                                }
+                                                                                                   },
+                                                                                        "width":  {
+                                                                                                      "expr":  {
+                                                                                                                   "Literal":  {
+                                                                                                                                   "Value":  "1D"
+                                                                                                                               }
+                                                                                                               }
+                                                                                                  }
+                                                                                    }
+                                                                 }
+                                                             ],
+                                                  "padding":  [
+                                                                  {
+                                                                      "properties":  {
+                                                                                         "top":  {
+                                                                                                     "expr":  {
+                                                                                                                  "Literal":  {
+                                                                                                                                  "Value":  "12D"
+                                                                                                                              }
+                                                                                                              }
+                                                                                                 },
+                                                                                         "bottom":  {
+                                                                                                        "expr":  {
+                                                                                                                     "Literal":  {
+                                                                                                                                     "Value":  "12D"
+                                                                                                                                 }
+                                                                                                                 }
+                                                                                                    },
+                                                                                         "left":  {
+                                                                                                      "expr":  {
+                                                                                                                   "Literal":  {
+                                                                                                                                   "Value":  "12D"
+                                                                                                                               }
+                                                                                                               }
+                                                                                                  },
+                                                                                         "right":  {
+                                                                                                       "expr":  {
+                                                                                                                    "Literal":  {
+                                                                                                                                    "Value":  "12D"
+                                                                                                                                }
+                                                                                                                }
+                                                                                                   }
+                                                                                     }
+                                                                  }
+                                                              ],
+                                                  "title":  [
+                                                                {
+                                                                    "properties":  {
+                                                                                       "show":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "true"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                },
+                                                                                       "text":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "\u0027Top 10 Ads by Approved Conversions\u0027"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                },
+                                                                                       "fontSize":  {
+                                                                                                        "expr":  {
+                                                                                                                     "Literal":  {
+                                                                                                                                     "Value":  "15D"
+                                                                                                                                 }
+                                                                                                                 }
+                                                                                                    },
+                                                                                       "fontColor":  {
+                                                                                                         "solid":  {
+                                                                                                                       "color":  {
+                                                                                                                                     "expr":  {
+                                                                                                                                                  "Literal":  {
+                                                                                                                                                                  "Value":  "\u0027#102A43\u0027"
+                                                                                                                                                              }
+                                                                                                                                              }
+                                                                                                                                 }
+                                                                                                                   }
+                                                                                                     },
+                                                                                       "bold":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "true"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                }
+                                                                                   }
+                                                                }
+                                                            ]
+                                              }
+               }
+}
